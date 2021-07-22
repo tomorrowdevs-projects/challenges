@@ -1,6 +1,6 @@
 # The Stack data structure
 
-![Stack](/docs/stack.jpg)
+![Stack](https://github.com/tomorrowdevs-projects/challenges/blob/main/challenges/data-structures/01-stack/docs/stack.jpg)
 
 A stack is an Abstract Data Type (ADT), commonly used in most programming languages. It is named stack as it behaves like a real-world stack, for example – a deck of cards or a pile of plates, etc.
 
