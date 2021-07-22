@@ -18,7 +18,7 @@ Some useful challenge links.
 - [ ] Criteria 2
 - [ ] Criteria 3
 
-** Hard**
+**Hard**
 
 - [ ] Criteria 1
 - [ ] Criteria 2
