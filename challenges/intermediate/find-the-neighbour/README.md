@@ -44,7 +44,7 @@ def find_neighbour(cube, query):
 
 # Test cases
 
-find_neighbour(cubeStr, "Peter: My left neighbor is (?)") == "Tom"
+find_neighbour(cubeStr, "Peter: My left neighbor is (?)") == "Mike"
 find_neighbour(cubeStr, "Bob: My upstairs neighbor is (?)") == "Mike"
 find_neighbour(cubeStr, "Tom: My right neighbor is (?)") == "Jerry"
 find_neighbour(cubeStr, "Jerry: My downstairs neighbor is (?)") == "Peter"
@@ -80,7 +80,7 @@ function find_neighbour(cube, query) {
 
 // Test cases
 
-find_neighbour(cubeStr, "Peter: My left neighbor is (?)") === "Tom"
+find_neighbour(cubeStr, "Peter: My left neighbor is (?)") === "Mike"
 find_neighbour(cubeStr, "Bob: My upstairs neighbor is (?)") === "Mike"
 find_neighbour(cubeStr, "Tom: My right neighbor is (?)") === "Jerry"
 find_neighbour(cubeStr, "Jerry: My downstairs neighbor is (?)") === "Peter"
