@@ -1,5 +1,5 @@
 """
-Solution for challenge: "Clean up after your dog"
+Python solution for challenge: "Clean up after your dog"
 """
 
 
