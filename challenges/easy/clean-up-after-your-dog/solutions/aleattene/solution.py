@@ -1,5 +1,6 @@
 """
 Python solution for challenge: "Clean up after your dog"
+To test the function type from CLI: python tests.py
 """
 
 
