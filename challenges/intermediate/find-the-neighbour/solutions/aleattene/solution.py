@@ -22,7 +22,7 @@ def find_neighbour(cube, query):
     # Query_direction is equal to left or right
     if query_direction in ['left', 'right']:
         # Check if the index_neighbor is correct (in the cube_lst and in the same row)
-        if 0 <= index_neighbor <= len(names_list)-1 and index_name // 3 == index_neighbor // 3:
+        if 0 <= index_neighbor <= len(names_list) - 1 and index_name // 3 == index_neighbor // 3:
             # Return the name of the neighbor
             return names_list[index_neighbor]
         else:
