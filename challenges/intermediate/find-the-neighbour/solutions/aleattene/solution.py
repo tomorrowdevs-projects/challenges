@@ -1,5 +1,8 @@
 
-""" Python solution for challenge: "Find the neighbour" """
+"""
+Python solution for challenge: "Find the neighbour"
+To start the tests, type from CLI: python tests.py
+"""
 
 
 def find_neighbour(cube, query):
