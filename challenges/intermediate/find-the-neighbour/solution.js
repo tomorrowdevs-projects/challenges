@@ -1,6 +1,5 @@
 // https://jsfiddle.net/dianaberna/bmgypt78/
-
-const regexCube = /-\||[A-Za-z]{1,6}/gm;
+const regexCube = /-\||[a-zA-Z]+/gm;
 
 const cubeStr = `
    ______________________
@@ -17,48 +16,31 @@ const cubeStr = `
  |______|______|______|/
 `;
 
-function check(nameList,query,queryName,position,i,j,z){
- if(query.indexOf(position) !== -1){
-  var index = nameList.indexOf(queryName);
-    if(index == i || index == j || index == z){
-     return -1;
-    }else{
-     var move;
-     switch(position){
-      case "left": move = -1; break; 
-      case "right": move = 1; break;
-      case "upstairs": move = 3; break;
-      case "downstairs": move = 3; break;
-     }
-     return index+move;
-    }
-  }
-}
 
 function find_neighbour(cube, query) {
- var nameList = [];
- var queryName = query.split(":")[0];
- while((array = regexCube.exec(cube)) !== null){
-   nameList.push(array[0])
- }
-
- var move = ["left", "right", "upstair", "downstair"];
- move.forEach( m => {
-  if(query.indexOf(m) !== -1){
-   switch(m){
-    case "left": e = check(nameList,query,queryName,"left",0,3,6); break;
-    case "right": e = check(nameList,query,queryName,"right",2,5,8); break;
-    case "upstairs": e = check(nameList,query,queryName,"right",0,1,2); break;
-    case "downstairs": e = check(nameList,query,queryName,"right",6,7,8); break;
+  var nameList = [];
+  var queryName = query.split(":")[0];
+  while((array = regexCube.exec(cube)) !== null){
+    	nameList.push(array[0])
+  }
+  
+  let arrayMovement = [
+    {key: "left", move: -1, nope: [0,3,6]},
+    {key: "right", move: 1, nope: [2,5,8]},
+    {key: "upstairs", move: -3, nope: [0,1,2]},
+    {key: "downstairs", move: 3, nope: [6,7,8]}
+  ];
+  
+  arrayMovement.forEach( obj => {
+  	if(query.indexOf(obj.key) !== -1){
+        var index = nameList.indexOf(queryName);
+        if(index < 7 && index > 1){
+        	console.log(nameList[index+obj.move]); 
+        }else{
+          	console.log("nobody");
+        }
     }
-   }
- });
-	
- if(e==-1){
-  console.log("nobody");
- }else{
-  console.log(nameList[e]);
- }
+  })
 
 }
 
