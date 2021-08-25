@@ -18,47 +18,47 @@ const cubeStr = `
 `;
 
 function check(nameList,query,queryName,position,i,j,z){
-	if(query.indexOf(position) !== -1){
-  	var index = nameList.indexOf(queryName);
+ if(query.indexOf(position) !== -1){
+  var index = nameList.indexOf(queryName);
     if(index == i || index == j || index == z){
-    	return -1;
+     return -1;
     }else{
-    	var move;
-    	switch(position){
-      	case "left": move = -1; break; 
-        case "right": move = 1; break;
-        case "upstairs": move = 3; break;
-        case "downstairs": move = 3; break;
-      }
-      return index+move;
+     var move;
+     switch(position){
+      case "left": move = -1; break; 
+      case "right": move = 1; break;
+      case "upstairs": move = 3; break;
+      case "downstairs": move = 3; break;
+     }
+     return index+move;
     }
   }
 }
 
 function find_neighbour(cube, query) {
-	var nameList = [];
-  var queryName = query.split(":")[0];
-  while((array = regexCube.exec(cube)) !== null){
-    nameList.push(array[0])
-  }
+ var nameList = [];
+ var queryName = query.split(":")[0];
+ while((array = regexCube.exec(cube)) !== null){
+   nameList.push(array[0])
+ }
 
-  var move = ["left", "right", "upstair", "downstair"];
-  move.forEach(m =>{
-    if(query.indexOf(m) !== -1){
-      switch(m){
-        case "left": e = check(nameList,query,queryName,"left",0,3,6); break;
-        case "right": e = check(nameList,query,queryName,"right",2,5,8); break;
-        case "upstairs": e = check(nameList,query,queryName,"right",0,1,2); break;
-        case "downstairs": e = check(nameList,query,queryName,"right",6,7,8); break;
-      }
+ var move = ["left", "right", "upstair", "downstair"];
+ move.forEach( m => {
+  if(query.indexOf(m) !== -1){
+   switch(m){
+    case "left": e = check(nameList,query,queryName,"left",0,3,6); break;
+    case "right": e = check(nameList,query,queryName,"right",2,5,8); break;
+    case "upstairs": e = check(nameList,query,queryName,"right",0,1,2); break;
+    case "downstairs": e = check(nameList,query,queryName,"right",6,7,8); break;
     }
-  });
+   }
+ });
 	
-  if(e==-1){
-    console.log("nobody");
-  }else{
-    console.log(nameList[e]);
-  }
+ if(e==-1){
+  console.log("nobody");
+ }else{
+  console.log(nameList[e]);
+ }
 
 }
 
