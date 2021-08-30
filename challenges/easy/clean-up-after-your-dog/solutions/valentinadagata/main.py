@@ -8,12 +8,12 @@ def cleanUp(garden, bags, cap):
 
     # check the list inside the list garden
     for g in garden:
-        # count how many cr@p are there inside each list and sum all
-        count_crap = g.count('@')
-        total_crap += count_crap
         # check if there's the Dog and stop the cycle by returning it
         if 'D' in g:
             return dog
+        # count how many cr@p are there inside each list and sum all
+        count_crap = g.count('@')
+        total_crap += count_crap
 
     # if there isn't the dog I can check if the total capacity of the bags is enough to contain all the cr@p
     if total_cap >= total_crap:
