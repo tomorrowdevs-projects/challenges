@@ -13,10 +13,11 @@ def find_neighbour(cube, query):
     matrix = [newcube[x:x + rows_cols] for x in range(0, len(newcube), rows_cols)]
 
     # split the query to take the person name and the direction
-    split_query = query.split(": My ")
+    # use strip() to remove white spaces
+    split_query = query.strip().split(":")
     person = split_query[0]
-    split_direction = split_query[1].split(" ")
-    direction = split_direction[0]
+    split_direction = re.split(': | ', split_query[1].strip())
+    direction = split_direction[1]
 
     """
     for each row and each column check the person and then extract the name of the neighbour from the matrix
@@ -58,4 +59,4 @@ if __name__ == '__main__':
      |  Bob | Bill | Wang | /
      |______|______|______|/
     """
-    print(find_neighbour(cubeStr, "Tom: My upstairs neighbor neighbor is (?)"))
+    print(find_neighbour(cubeStr, "  Tom:    My upstairs neighbor is (?)"))
