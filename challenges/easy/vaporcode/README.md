@@ -18,7 +18,7 @@ You can choice either one (or more) of the following languages:
 - [Clojure](https://clojure.org) ⭐️⭐️⭐️⭐️⭐️
 - [Prolog](https://www.swi-prolog.org/) ⭐️⭐️⭐️⭐️⭐️
 - [Haskell](https://haskell.org) ⭐️⭐️⭐️⭐️⭐️
-- [APL](https://www.apl-lang.org) ⭐️⭐️⭐️⭐️⭐️
+- [APL](https://en.wikipedia.org/wiki/APL_(programming_language)) ⭐️⭐️⭐️⭐️⭐️
 
 # Examples
 
