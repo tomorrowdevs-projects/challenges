@@ -7,6 +7,7 @@ While this may seems like a very simple challenge, it will become a bit harder, 
 
 You can choice either one (or more) of the following languages:
 
+- [PHP](https://www.php.net) ⭐️
 - [Ruby](https://www.ruby-lang.org) ⭐️
 - [Lua](https://www.lua.org) ⭐️
 - [Swift](https://swift.org) ⭐️
@@ -23,7 +24,7 @@ You can choice either one (or more) of the following languages:
 # Examples
 
 ```js
-vaporwave("Hello, world!") === "H E L L O , W O R L D !";
-vaporwave("I love JavaScript!") === "I L O V E J A V A S C R I P T !";
-vaporwave("I love Rust!") === "I L O V E R U S T !";
+vaporwave("Hello, world!") === "H  E  L  L  O  ,  W  O  R  L  D  !";
+vaporwave("I love JavaScript!") === "I  L  O  V  E  J  A  V  A  S  C  R  I  P  T  !";
+vaporwave("I love Rust!") === "I  L  O  V  E  R  U  S  T  !";
 ```
