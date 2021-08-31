@@ -5,21 +5,15 @@ To test the function type from CLI: python tests.py
 
 
 def clean_up(garden, bags, cap):
-    # Total cleaning capacity
-    total_cleaning_cap = bags * cap
-    # Garden check
-    for schema in garden:
-        for char in schema:
-            if char == "D":
-                # Dog is out
-                return 'Dog!!'
-            elif char == "@":
-                # Pick up cr@p
-                total_cleaning_cap -= 1
-    # Garden clean or not
-    if total_cleaning_cap < 0:
-        # Not enough cleaning capacity
-        return 'Cr@p'
-    else:
-        # The garden was completely cleaned
-        return 'Clean'
+    # Declaration of the variables (no use of the local constants according to the PEP-8 standard)
+    dog, crap, clean = 'Dog!!', 'Cr@p', 'Clean'
+    # Modify the list of lists in a single string
+    garden = str(garden)
+    # Check if the Dog is out
+    if garden.count("D") > 0:
+        return dog
+    # Check if it is possible to clean the garden
+    elif garden.count("@") > bags * cap:
+        return crap
+    # It is possible to clean the garden
+    return clean
