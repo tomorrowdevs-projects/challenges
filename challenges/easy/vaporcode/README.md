@@ -7,6 +7,7 @@ While this may seems like a very simple challenge, it will become a bit harder, 
 
 You can choice either one (or more) of the following languages:
 
+- [PHP](https://www.php.net) ⭐️
 - [Ruby](https://www.ruby-lang.org) ⭐️
 - [Lua](https://www.lua.org) ⭐️
 - [Swift](https://swift.org) ⭐️
