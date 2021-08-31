@@ -24,7 +24,7 @@ You can choice either one (or more) of the following languages:
 # Examples
 
 ```js
-vaporwave("Hello, world!") === "H E L L O , W O R L D !";
-vaporwave("I love JavaScript!") === "I L O V E J A V A S C R I P T !";
-vaporwave("I love Rust!") === "I L O V E R U S T !";
+vaporwave("Hello, world!") === "H  E  L  L  O  ,  W  O  R  L  D  !";
+vaporwave("I love JavaScript!") === "I  L  O  V  E  J  A  V  A  S  C  R  I  P  T  !";
+vaporwave("I love Rust!") === "I  L  O  V  E  R  U  S  T  !";
 ```
