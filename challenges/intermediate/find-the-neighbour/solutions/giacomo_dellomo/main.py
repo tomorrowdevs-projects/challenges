@@ -30,7 +30,6 @@ def find_neighbour(cube_str, query):
 
 
 print(find_neighbour(cubeStr, "Bob: My downstairs neighbor is (?)"))
-
 print(find_neighbour(cubeStr, "Peter: My left neighbor is (?)"))  # == "Mike"
 print(find_neighbour(cubeStr, "Bob: My upstairs neighbor is (?)"))  # == "Mike"
 print(find_neighbour(cubeStr, "Tom: My right neighbor is (?)"))  # == "Jerry"

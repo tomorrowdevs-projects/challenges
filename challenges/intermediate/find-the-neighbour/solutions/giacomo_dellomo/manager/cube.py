@@ -45,6 +45,10 @@ class Cube:
 
         index = np.where(self.cube == name)
 
+        # check if there are two identical names
+        if len(index[0]) > 1:
+            return "I am confused, in the cube there are 2 identical names"
+
         # name not found
         if len(index[0]) == 0:
             return "Name not found"
