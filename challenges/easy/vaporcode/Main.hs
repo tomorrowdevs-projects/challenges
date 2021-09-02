@@ -14,8 +14,7 @@ isWhite = (`elem` [' '])
 
 -- convert a char to uppercase
 toUp :: Char -> Char
---toUp x = if isUp x then x else toEnum (fromEnum x - 32)
-toUp x = if isUp x then x else (if isWhite x then x else toEnum (fromEnum x - 32))
+toUp x = if isLow x then toEnum (fromEnum x - 32) else x
 
 -- convert a string to uppercase using map and toUp
 toUpStr :: String -> String
@@ -25,6 +24,8 @@ toUpStr str = map toUp str
 mySplit :: String -> [String]
 mySplit str = filter (\s -> length s == 1) $ map (take 1) (tails str)
 
--- return a new string using the buid function unwords, that separates the chars using whitespaces
-myVapor = unwords . mySplit . toUpStr
+--remove whitespace from a list
+remove list = filter (\e -> e/=" ") list
 
+-- return a new string using the buid function unwords, that separates the chars using whitespaces
+myVapor = unwords . remove . mySplit . toUpStr
