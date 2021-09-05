@@ -7,6 +7,8 @@ import (
   "strings"
 )
 
+//var w string = " Let's go  to the    movie! "
+
 func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	fmt.Print("enter word/sentence: ")
@@ -23,3 +25,4 @@ func main() {
     }
 	}
 }
+
