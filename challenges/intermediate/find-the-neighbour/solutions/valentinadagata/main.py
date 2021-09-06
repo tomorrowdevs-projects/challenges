@@ -1,6 +1,7 @@
 import re
 from math import sqrt
 
+
 def find_neighbour(cube, query):
     # delete all characters that are not letters
     regex = re.compile('[^a-zA-Z]')
@@ -27,6 +28,7 @@ def find_neighbour(cube, query):
     # right == same row, next column
     # if there's index error the answer is nobody
     """
+    neighbour = ""
     for row in range(0, rows_cols):
         for col in range(0, rows_cols):
             if matrix[row][col] == person:
