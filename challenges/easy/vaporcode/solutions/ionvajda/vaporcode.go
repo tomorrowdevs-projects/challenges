@@ -9,11 +9,9 @@ func vaporCode(str string) string {
   var upperString string
   for _, letter := range strings.ReplaceAll(str, " ", "") {
       upperString += strings.ToUpper(string(letter))
-      if upperString != "" {
       upperString += "  "
-    }
   }
-  return strings.Trim(upperString, "")
+  return upperString
 }
 
 func main() {
