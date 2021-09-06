@@ -1,6 +1,6 @@
 # check if a number is a prime number
 def isPrime(n: int) -> bool:
-    if n == 0 or n == 1:
+    if n <= 1:
         return False
 
     for i in range(2, (n // 2) + 1):
