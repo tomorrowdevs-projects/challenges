@@ -1,23 +1,18 @@
 # PRIME REVERSION CHALLENGE
 
-def find_primes_in_range(lower, upper):
+def range_to_list(lower, upper):
     """
-    :param lower: int
-    :param upper: int
-    :return: a list of prime integers
+    :param lower: integer
+    :param upper: integer 
+    :return: a list of integers
     """
-    primes = []
-    for num in range(lower, upper):
-        if num > 1:
-            for i in range(2,num):
-                if (num % i) == 0:
-                    break
-            else:
-                primes.append(num)
-    return primes
+    if lower >= 0 and upper <= 10001:
+        return list(range(lower, upper))
+    else:
+        raise ValueError("upper bound cannot exceed 10000")
 
 
-def find_primes_in_list(numbers):
+def find_primes(numbers):
     """
     :param numbers: list of integers
     :return: a list of prime integers
@@ -62,17 +57,17 @@ def count_reversions(couples):
         inner_sum = sum(list(map(int,product_as_str)))
         inner_sums.append(inner_sum)
     # after calculating the sums, I invoke the function to filter prime numbers
-    primes_among_sums = find_primes_in_list(inner_sums)
+    primes_among_sums = find_primes(inner_sums)
     return len(primes_among_sums)
 
 
-def solve(lower, upper):
+def solve(numbers):
     """
     :param lower: integer
     :param upper: integer
     :return: integer
     """
-    primes = find_primes_in_range(lower, upper)
+    primes = find_primes(numbers)
     couples = find_couples(primes)
     prime_reversions = count_reversions(couples)
     return prime_reversions
@@ -80,6 +75,7 @@ def solve(lower, upper):
 
 if __name__ == '__main__':
     x = 1
-    y = 1000
-    solution = solve(x, y)
+    y = 100
+    numbers = range_to_list(x, y)
+    solution = solve(numbers)
     print(solution)
