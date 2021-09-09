@@ -4,13 +4,13 @@ from input import InputBot
 def main():
 
     while True:
-        input_bot = input("Enter the input (BLANK to quit): ")
-        if input_bot.lower() == "":
+        user_input = input("Enter the input (BLANK to quit): ")
+        if user_input.lower() == "":
             print("Bye bye!")
             break
 
         try:
-            prefix, suffix = input_bot.lower().split(" is ")
+            prefix, suffix = user_input.lower().split(" is ")
             robot = InputBot(prefix, suffix)
             print(robot.checkInput())
 

@@ -8,7 +8,7 @@ class Bot:
     # @items and metals stored from input entered by user
     def __init__(self, prefix: str = '', suffix: str = '', items: dict = dict(), metals: dict = dict()):
         self.prefix = prefix
-        self.suffix = suffix
+        self.suffix = suffix.replace("?", "")
         self.items = items
         self.metals = metals
 
@@ -21,6 +21,9 @@ class Bot:
         # base condition
         if roman == '':
             return 0
+
+        if roman[0] not in romans_table:
+            raise KeyError
 
         if len(roman) > 1:
             # check the syntax to find IV, IX, ecc.
@@ -59,9 +62,6 @@ class Bot:
     # sums units entered by user
     def unitSum(self):
 
-        # clear the suffix string
-        self.suffix = self.suffix.replace("?", "")
-
         # split suffix in singles elements (ex. "pish tegj glob glob" in ["pish", "tegj", "glob", "glob"]
         quantity_list = self.suffix.split()
 
@@ -72,9 +72,6 @@ class Bot:
 
     # calculate the value in credits of a quantity of a metal
     def countMetal(self):
-
-        # clear the suffix string
-        self.suffix = self.suffix.replace("?", "")
 
         # split the prefix and find the metal as the last element in the list
         quantity_list = self.suffix.split()

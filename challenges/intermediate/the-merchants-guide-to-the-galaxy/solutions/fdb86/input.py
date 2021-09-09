@@ -15,6 +15,7 @@ class InputBot:
 
     # manage the input entered by the user
     def checkInput(self):
+
         if len(self.suffix) == 1 and self.bot.roman2int(self.suffix) > 0:
 
             return self.bot.checkUnits()
@@ -33,4 +34,4 @@ class InputBot:
 
         else:
 
-            return "Value not in Roman Table!\n"
+            return "I have no idea what you are talking about\n"
