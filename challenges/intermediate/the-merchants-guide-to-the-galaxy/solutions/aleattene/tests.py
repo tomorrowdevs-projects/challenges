@@ -45,55 +45,56 @@ class TestSolution(unittest.TestCase):
     def test_second_settings_acquisitions(self):
         print("\nTEST SECOND SETTING")
         all_map_dict = {'glob': 'I', 'prok': 'V', 'pish': 'X', 'tegj': 'L'}
+        allowed_symbols = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
         multipliers_value = {}
         # glob glob Silver
         self.assertEqual(check_information_structure_second_setting(
-           'glob glob Silver is 34 Credits', all_map_dict, multipliers_value),
+           'glob glob Silver is 34 Credits', allowed_symbols, all_map_dict, multipliers_value),
            multipliers_value['Silver'] == 17.0)
         self.assertEqual(check_information_structure_second_setting(
-            'glob glob Silver is 34 Credits', all_map_dict, multipliers_value), False)
+            'glob glob Silver is 34 Credits', allowed_symbols, all_map_dict, multipliers_value), False)
         self.assertEqual(check_information_structure_second_setting(
-            'glob glob glob Silver is 34 Credits', all_map_dict, multipliers_value), False)
+            'glob glob glob Silver is 34 Credits', allowed_symbols, all_map_dict, multipliers_value), False)
         self.assertEqual(check_information_structure_second_setting(
-            'glob glob Silver Silver is 34 Credits', all_map_dict, multipliers_value), False)
+            'glob glob Silver Silver is 34 Credits', allowed_symbols, all_map_dict, multipliers_value), False)
         self.assertEqual(check_information_structure_second_setting(
-            'glob glob Silver is is 34 Credits', all_map_dict, multipliers_value), False)
+            'glob glob Silver is is 34 Credits', allowed_symbols, all_map_dict, multipliers_value), False)
         self.assertEqual(check_information_structure_second_setting(
-            'glob glob Silver is 34.0 Credits', all_map_dict, multipliers_value), False)
+            'glob glob Silver is 34.0 Credits', allowed_symbols, all_map_dict, multipliers_value), False)
         self.assertEqual(check_information_structure_second_setting(
-            'glob glob Silver is 34 credits', all_map_dict, multipliers_value), False)
+            'glob glob Silver is 34 credits', allowed_symbols, all_map_dict, multipliers_value), False)
         # glob glob Gold
         self.assertEqual(check_information_structure_second_setting(
-            'glob prok Gold is 57800 Credits', all_map_dict, multipliers_value),
+            'glob prok Gold is 57800 Credits', allowed_symbols, all_map_dict, multipliers_value),
             multipliers_value['Gold'] == 14450.0)
         self.assertEqual(check_information_structure_second_setting(
-             'glob prok Gold is 57800 Credits', all_map_dict, multipliers_value), False)
+             'glob prok Gold is 57800 Credits', allowed_symbols, all_map_dict, multipliers_value), False)
         self.assertEqual(check_information_structure_second_setting(
-            'glob prok Gold Gold is 57800 Credits', all_map_dict, multipliers_value), False)
+            'glob prok Gold Gold is 57800 Credits', allowed_symbols, all_map_dict, multipliers_value), False)
         self.assertEqual(check_information_structure_second_setting(
-            'glob prok Gold Gold is 57800 Credits', all_map_dict, multipliers_value), False)
+            'glob prok Gold Gold is 57800 Credits', allowed_symbols, all_map_dict, multipliers_value), False)
         self.assertEqual(check_information_structure_second_setting(
-            'glob prok Gold is is 57800 Credits', all_map_dict, multipliers_value), False)
+            'glob prok Gold is is 57800 Credits', allowed_symbols, all_map_dict, multipliers_value), False)
         self.assertEqual(check_information_structure_second_setting(
-            'glob prok Gold is 57800.0 Credits', all_map_dict, multipliers_value), False)
+            'glob prok Gold is 57800.0 Credits', allowed_symbols, all_map_dict, multipliers_value), False)
         self.assertEqual(check_information_structure_second_setting(
-            'glob prok Gold is 57800 credits', all_map_dict, multipliers_value), False)
+            'glob prok Gold is 57800 credits', allowed_symbols, all_map_dict, multipliers_value), False)
         # pish pish Iron
         self.assertEqual(check_information_structure_second_setting(
-            'pish pish Iron is 3910 Credits', all_map_dict, multipliers_value),
+            'pish pish Iron is 3910 Credits', allowed_symbols, all_map_dict, multipliers_value),
             multipliers_value['Iron'] == 195.5)
         self.assertEqual(check_information_structure_second_setting(
-             'pish pish Iron is 3910 Credits', all_map_dict, multipliers_value), False)
+             'pish pish Iron is 3910 Credits', allowed_symbols, all_map_dict, multipliers_value), False)
         self.assertEqual(check_information_structure_second_setting(
-            'pish pish pish Iron is 3910 Credits', all_map_dict, multipliers_value), False)
+            'pish pish pish Iron is 3910 Credits', allowed_symbols, all_map_dict, multipliers_value), False)
         self.assertEqual(check_information_structure_second_setting(
-            'pish pish Iron Iron is 3910 Credits', all_map_dict, multipliers_value), False)
+            'pish pish Iron Iron is 3910 Credits', allowed_symbols, all_map_dict, multipliers_value), False)
         self.assertEqual(check_information_structure_second_setting(
-            'pish pish Iron is is 3910 Credits', all_map_dict, multipliers_value), False)
+            'pish pish Iron is is 3910 Credits', allowed_symbols, all_map_dict, multipliers_value), False)
         self.assertEqual(check_information_structure_second_setting(
-            'pish pish Iron is 3910.0 Credits', all_map_dict, multipliers_value), False)
+            'pish pish Iron is 3910.0 Credits', allowed_symbols, all_map_dict, multipliers_value), False)
         self.assertEqual(check_information_structure_second_setting(
-            'pish pish Iron is 3910 credits', all_map_dict, multipliers_value), False)
+            'pish pish Iron is 3910 credits', allowed_symbols, all_map_dict, multipliers_value), False)
         self.assertEqual(multipliers_value, {'Silver': 17.0, 'Gold': 14450.0, 'Iron': 195.5})
         print("TEST SECOND SETTING - OK")
 

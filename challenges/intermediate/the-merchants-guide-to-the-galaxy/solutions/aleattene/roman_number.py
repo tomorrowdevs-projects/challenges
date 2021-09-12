@@ -1,11 +1,11 @@
 
+
 def roman_number_generator(number):
-    """ This function transforms an arabic number (int) into a roman number (str) """
-    symbols_value = (
+    """ This function converts an arabic number (int) into a roman number (str) """
+    symbols_value = [
         ("M", 1000), ("CM", 900), ("D", 500), ("CD", 400),
         ("C", 100), ("XC", 90), ("L", 50), ("XL", 40), ("XXX", 30), ("XX", 20),
-        ("X", 10), ("IX", 9), ("V", 5), ("IV", 4), ("I", 1)
-    )
+        ("X", 10), ("IX", 9), ("V", 5), ("IV", 4), ("I", 1)]
     result = ""
     for symbol, value in symbols_value:
         while number >= value:
@@ -16,7 +16,8 @@ def roman_number_generator(number):
 
 def check_roman_number_correct_form(roman_number, allowed_symbols, symbol_occurrences_no_repeat=0,
                                     symbol_occurrences=0, symbol_previous="M", number_backup=""):
-    """ This function checks the syntactic correctness of a roman number """
+    """ This function checks the structural consistency of a roman number """
+    """ The code works correctly but it is absolutely necessary to refactor it"""
     roman_numbers_dict = {
         "M": 1000,
         "D": 500,
@@ -115,8 +116,7 @@ def check_roman_number_correct_form(roman_number, allowed_symbols, symbol_occurr
 
 
 def from_roman_number_to_integer(roman_number):
-    """ This function converts a roman number into an integer number"""
-    # DICTIONARY - Roman Numbers
+    """ This function converts a roman number (str) into an arabic number (int)"""
     roman_numbers_dict = {
         "M": 1000,
         "D": 500,
@@ -126,19 +126,19 @@ def from_roman_number_to_integer(roman_number):
         "V": 5,
         "I": 1
     }
-    # BASE CASE
+    # Base case
     if len(roman_number) == 1:
         return roman_numbers_dict[roman_number]
-    # RECURSIVE CASES (each recursive case remove first char of the tail)
+    # Recursive case (each recursive case remove first char of the tail)
     tail = roman_number[1:len(roman_number)]
-    # Decimal Value of the FIRST CHAR of the list
+    # Decimal value of the first char of the list
     current_value = roman_numbers_dict[roman_number[0]]
-    # Comparison of PRESENT value with PREVIOUS value
+    # Comparison of present value with previous value
     if current_value >= roman_numbers_dict[roman_number[1]]:
-        # present value GREATER than previous value
+        # present value greater or equal than previous value
         return current_value + from_roman_number_to_integer(tail)
     else:
-        # present value LESS than previous value
+        # present value less than previous value
         return -current_value + from_roman_number_to_integer(tail)
 
 
