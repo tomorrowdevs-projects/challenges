@@ -3,24 +3,23 @@
 from roman_number import *
 
 
-def generate_answer(question, all_map_dict, multipliers_value):
+def generate_answer(question, roman_numbers_allowed_symbols_list, all_values_settings_mapped_dict, multipliers_value):
     """ This function ... """
-    allowed_symbols = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
-    roman_number = ""
+    roman_num = ""
     if len(question) == 4:
-        for i in range(4):
-            roman_number += all_map_dict[question[i]]
-        if check_roman_number_correct_form(roman_number, allowed_symbols):
-            number = from_roman_number_to_integer(roman_number)
-            return " ".join(question) + " is " + str(number)
+        for j in range(4):
+            roman_num += all_values_settings_mapped_dict[question[j]]
+        if check_roman_number_correct_form(roman_num, roman_numbers_allowed_symbols_list):
+            arabic_number = from_roman_number_to_integer(roman_num)
+            return " ".join(question) + " is " + str(arabic_number)
         else:
             return "I have no idea what you are talking about"
     elif len(question) == 3:
-        for i in range(2):
-            roman_number += all_map_dict[question[i]]
-        if check_roman_number_correct_form(roman_number, allowed_symbols):
-            number = from_roman_number_to_integer(roman_number)
-            num_credits = int(number * multipliers_value[question[2]])
+        for k in range(2):
+            roman_num += all_values_settings_mapped_dict[question[k]]
+        if check_roman_number_correct_form(roman_num, roman_numbers_allowed_symbols_list):
+            arabic_number = from_roman_number_to_integer(roman_num)
+            num_credits = int(arabic_number * multipliers_value[question[2]])
             return " ".join(question) + " is " + str(num_credits) + " Credits"
         else:
             return "I have no idea what you are talking about"
