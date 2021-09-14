@@ -15,8 +15,8 @@ The REST API must implement the following schema:
 | key | type | mandatory |
 |-----|------|-----------|
 | `author` | string | yes |
-| `limit` | integer | no |
-| `offset`| integer | no |
+| `limit` | integer | no (default = 25) |
+| `offset`| integer | no (default = 0) |
 
 **Response**
 
@@ -51,8 +51,8 @@ The REST API must implement the following schema:
 | key | type | mandatory |
 |-----|------|-----------|
 | `term` | string | yes |
-| `limit` | integer | no |
-| `offset`| integer | no |
+| `limit` | integer | no (default = 25) |
+| `offset`| integer | no (default = 0) |
 
 **Response**
 
