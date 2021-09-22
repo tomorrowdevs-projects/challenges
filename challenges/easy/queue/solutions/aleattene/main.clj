@@ -1,63 +1,65 @@
 ;; Clojure solution for easy challenge: "Queue"
 
-;; Class Queue
-(ns Queue (:gen-class :init init))
+;; Queue Class
+(ns Queue (:gen-class))
 
-(defn init [queue] (def .queue queue))
+(defn -setQueue [] (def .queue []))
 
-;; enqueue method
-(defn enqueue [queue item] (def .queue (conj queue item)))
+;; ENQUEUE method => Adds an item to the queue (FIFO)
+(defn -enqueue [queue item] (def .queue (conj queue item)))
 
-;; dequeue method
-(defn dequeue [queue] (def .queue (pop queue)))
+;; DEQUEUE method => Removes the first item from the queue (FIFO)
+(defn -dequeue [queue] (def .queue (subvec queue 1)))
 
-;; peek method => is a built-in clojure function
+;; PEEK method => Returns the next item in the queue without removing it
+(defn -peek [queue] (first queue))
 
-;; isEmpty method
-(defn isEmpty [queue] (empty? queue))
+;; ISEMPTY method => Returns a boolean indicating whether or not the queue is empty
+(defn -isEmpty [queue] (empty? queue))
 
-;; size method
-(defn size [queue](count queue))
+;; SIZE method => Returns the number of items in the queue
+(defn -size [queue](count queue))
 
 
 ;; IMPLEMENTATION TEST
-(def initialQueue [1 2 3])
-;; queue initialization
-(Queue/init initialQueue)
+;; QUEUE initialization
+(Queue/-setQueue)
 (print "\nINITIAL QUEUE: ")
 (println .queue)
-;; enqueue test
-(println "\nENQUEUE (add item(s) to queue): ")
-(enqueue .queue 4)
+;; ENQUEUE test
+(println "\nENQUEUE (each time adds an item to the queue (FIFO)): ")
+(-enqueue .queue 1)
 (println .queue)
-(enqueue .queue 5)
+(-enqueue .queue 2)
 (println .queue)
-;; dequeue test
-(println "\nDEQUEUE (remove item(s) from queue): ")
-(dequeue .queue)
+(-enqueue .queue 3)
 (println .queue)
-;; peek test
-(print "\nPEEK (return last item of queue): ")
-(println (peek .queue))
-;; isEmpty test
+(-enqueue .queue 4)
+(println .queue)
+;; DEQUEUE test
+(println "\nDEQUEUE (each time removes an item from the queue (FIFO)): ")
+(-dequeue .queue)
+(println .queue)
+;; PEEK test
+(print "\nPEEK (returns the next item in the queue without removing it): ")
+(println (-peek .queue))
+;; ISEMPTY test
 (print "\nThe QUEUE is EMPTY ? ")
-(println (isEmpty .queue))
-;; size test
-(print "\nSIZE QUEUE: ")
-(println (size .queue))
-;; dequeue test
-(println "\nDEQUEUE (remove item(s) from queue): ")
-(dequeue .queue)
+(println (-isEmpty .queue))
+;; SIZE test
+(print "\nNUMBER of ITEMS in the queue: ")
+(println (-size .queue))
+;; DEQUEUE test
+(println "\nDEQUEUE (each time removes an item from the queue (FIFO)): ")
+(-dequeue .queue)
 (println .queue)
-(dequeue .queue)
+(-dequeue .queue)
 (println .queue)
-(dequeue .queue)
+(-dequeue .queue)
 (println .queue)
-(dequeue .queue)
-(println .queue)
-;; size test
-(print "\nSIZE QUEUE: ")
-(println (size .queue))
-;; isEmpty test
+;; SIZE test
+(print "\nNUMBER of ITEMS in the queue: ")
+(println (-size .queue))
+;; ISEMPTY test
 (print "\nThe QUEUE is EMPTY ? ")
-(println (isEmpty .queue) "\n")
+(println (-isEmpty .queue) "\n")
