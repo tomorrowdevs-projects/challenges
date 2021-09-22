@@ -13,11 +13,11 @@
 
 ;; peek method => is a built-in clojure function
 
+;; isEmpty method
+(defn isEmpty [queue] (empty? queue))
+
 ;; size method
 (defn size [queue](count queue))
-
-;; isEmpty function
-(defn isEmpty [queue] (empty? queue))
 
 
 ;; IMPLEMENTATION TEST
