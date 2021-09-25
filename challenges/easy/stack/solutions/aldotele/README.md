@@ -22,6 +22,6 @@ The Stack has the following methods:
 - `size()` - Return the number of items in the stack.
 
 ## Code execution
-From CLI, type:
+From CLI, type:\
 `javac Main.java`\
 `java Main`
