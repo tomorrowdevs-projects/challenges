@@ -12,7 +12,7 @@ strings we would `push` each character onto the stack and then `pop` each charac
 Also, programming languages use a stack to execute code: when a function is called it gets added to
 to the *call-stack* and then removed once completed.
 
-*Source*: https://levelup.gitconnected.com/the-stack-data-structure-what-is-it-and-how-is-it-used-in-javascript-23562fb8a590
+[*Source*](https://levelup.gitconnected.com/the-stack-data-structure-what-is-it-and-how-is-it-used-in-javascript-23562fb8a590)
 
 ### methods
 The Stack has the following methods:
