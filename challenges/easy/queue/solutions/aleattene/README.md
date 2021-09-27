@@ -9,7 +9,7 @@ in the QUEUE (<i><b>FI - First In</b></i>) and only after the others
 </p>   
   
 <p align="center">   
-<img src="queue.png">
+<img src="challenges/easy/queue/solutions/aleattene/queue.png">
 </p>   
   
 <p align="justify"> 
@@ -25,5 +25,4 @@ that serves first (<i><b>FO - First Out</b></i>) the last element that has been 
 </p>  
   
 <p align="center">
-<img src="https://github.com/aleattene/challenges/blob/634f14779128ec2e877c28506f2c677924b1980c/challenges/easy/queue/solutions/aleattene/stack.png?raw=true">  
-</p>
+<img src="challenges/easy/queue/solutions/aleattene/stack.png">
