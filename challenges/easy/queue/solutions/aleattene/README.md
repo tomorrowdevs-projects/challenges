@@ -9,7 +9,7 @@ in the QUEUE (<i><b>FI - First In</b></i>) and only after the others
 </p>   
   
 <p align="center">   
-<img src="https://raw.githubusercontent.com/aleattene/challenges/634f14779128ec2e877c28506f2c677924b1980c/challenges/easy/queue/solutions/aleattene/queue.png">  
+<img src="queue.png">
 </p>   
   
 <p align="justify"> 
