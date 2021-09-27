@@ -78,7 +78,6 @@ class Queue {
 }
 
 
-
 class Main {
   public static void main(String[] args) {
     // instance of new queue
