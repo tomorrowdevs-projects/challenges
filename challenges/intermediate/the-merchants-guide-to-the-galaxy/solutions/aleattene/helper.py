@@ -1,13 +1,10 @@
 
-
 from roman_number import *
 
 
-def check_information_structure_first_setting(str_entered, all_values_settings_mapped_dict):
+def first_setting_is_valid(str_entered, all_values_settings_mapped_dict):
     """ This function checks the structural consistency of the entered string """
-    roman_numbers_dict = {
-        "M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1
-    }
+    roman_numbers_dict = {"M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1}
     # Conversion from string to list, using (space) separator
     lst_entered = str_entered.split(" ")
     # Check of the structural consistency of the entered string
@@ -22,8 +19,7 @@ def check_information_structure_first_setting(str_entered, all_values_settings_m
         return False
 
 
-def check_information_structure_second_setting(str_entered, roman_numbers_allowed_symbols_list,
-                                               all_values_settings_mapped_dict, multipliers_value):
+def second_setting_is_valid(str_entered, all_values_settings_mapped_dict, multipliers_value):
     """ This function checks the structural consistency of the entered string """
     # Conversion from string to list, using (space) separator
     lst_entered = str_entered.split(" ")
@@ -36,7 +32,7 @@ def check_information_structure_second_setting(str_entered, roman_numbers_allowe
         # positive outcome of the check: roman number generation
         roman_num = all_values_settings_mapped_dict[lst_entered[0]] + all_values_settings_mapped_dict[lst_entered[1]]
         # check of the structural consistency of the roman number
-        if check_roman_number_correct_form(roman_num, roman_numbers_allowed_symbols_list):
+        if roman_number_is_valid(roman_num):
             # positive outcome of the check: storage of the multiply value
             multipliers_value[lst_entered[2]] = int(lst_entered[4]) / from_roman_number_to_integer(roman_num)
             return True

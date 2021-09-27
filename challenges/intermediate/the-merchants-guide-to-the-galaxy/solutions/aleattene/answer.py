@@ -1,9 +1,8 @@
 
-
 from roman_number import *
 
 
-def generate_answer(question, roman_numbers_allowed_symbols_list, all_values_settings_mapped_dict, multipliers_value):
+def generate_answer(question, all_values_settings_mapped_dict, multipliers_value):
     """ This function generates an answer based on the question received """
     roman_num = ""
     # Checks if you need to generate an answer to a question with a three or four parameter
@@ -11,7 +10,7 @@ def generate_answer(question, roman_numbers_allowed_symbols_list, all_values_set
         for j in range(4):
             roman_num += all_values_settings_mapped_dict[question[j]]
         # check if the structure of the question (and therefore the corresponding roman number) is correct
-        if check_roman_number_correct_form(roman_num, roman_numbers_allowed_symbols_list):
+        if roman_number_is_valid(roman_num):
             # generation of the corresponding arabic number and therefore also of the correct answer
             arabic_number = from_roman_number_to_integer(roman_num)
             return " ".join(question) + " is " + str(arabic_number)
@@ -22,7 +21,7 @@ def generate_answer(question, roman_numbers_allowed_symbols_list, all_values_set
         for k in range(2):
             roman_num += all_values_settings_mapped_dict[question[k]]
         # check if the structure of the question (and therefore the corresponding roman number) is correct
-        if check_roman_number_correct_form(roman_num, roman_numbers_allowed_symbols_list):
+        if roman_number_is_valid(roman_num):
             # generation of the corresponding arabic number and therefore also of the correct answer
             arabic_number = from_roman_number_to_integer(roman_num)
             num_credits = int(arabic_number * multipliers_value[question[2]])

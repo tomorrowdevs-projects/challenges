@@ -12,129 +12,100 @@ class TestSolution(unittest.TestCase):
         print("\nTEST FIRST SETTING")
         all_values_settings_mapped_dict = {}
         # glob
-        self.assertEqual(check_information_structure_first_setting('glob is I',
-                                                                   all_values_settings_mapped_dict), True)
-        self.assertEqual(check_information_structure_first_setting('glob is I',
-                                                                   all_values_settings_mapped_dict),
+        self.assertEqual(first_setting_is_valid('glob is I', all_values_settings_mapped_dict), True)
+        self.assertEqual(first_setting_is_valid('glob is I', all_values_settings_mapped_dict),
                          all_values_settings_mapped_dict['glob'] == 'I')
-        self.assertEqual(check_information_structure_first_setting('glob is is I',
-                                                                   all_values_settings_mapped_dict), False)
-        self.assertEqual(check_information_structure_first_setting('glob slob is I',
-                                                                   all_values_settings_mapped_dict), False)
-        self.assertEqual(check_information_structure_first_setting('glob is I I',
-                                                                   all_values_settings_mapped_dict), False)
+        self.assertEqual(first_setting_is_valid('glob is is I',
+                                                all_values_settings_mapped_dict), False)
+        self.assertEqual(first_setting_is_valid('glob slob is I',
+                                                all_values_settings_mapped_dict), False)
+        self.assertEqual(first_setting_is_valid('glob is I I',
+                                                all_values_settings_mapped_dict), False)
         # prok
-        self.assertEqual(check_information_structure_first_setting('prok is V',
-                                                                   all_values_settings_mapped_dict), True)
-        self.assertEqual(check_information_structure_first_setting('prok is V',
-                                                                   all_values_settings_mapped_dict),
+        self.assertEqual(first_setting_is_valid('prok is V', all_values_settings_mapped_dict), True)
+        self.assertEqual(first_setting_is_valid('prok is V', all_values_settings_mapped_dict),
                          all_values_settings_mapped_dict['prok'] == 'V')
-        self.assertEqual(check_information_structure_first_setting('prok is is V',
-                                                                   all_values_settings_mapped_dict), False)
-        self.assertEqual(check_information_structure_first_setting('prok prok is V',
-                                                                   all_values_settings_mapped_dict), False)
-        self.assertEqual(check_information_structure_first_setting('prok is V V',
-                                                                   all_values_settings_mapped_dict), False)
+        self.assertEqual(first_setting_is_valid('prok is is V',
+                                                all_values_settings_mapped_dict), False)
+        self.assertEqual(first_setting_is_valid('prok prok is V',
+                                                all_values_settings_mapped_dict), False)
+        self.assertEqual(first_setting_is_valid('prok is V V',
+                                                all_values_settings_mapped_dict), False)
         # pish
-        self.assertEqual(check_information_structure_first_setting('pish is X',
-                                                                   all_values_settings_mapped_dict), True)
-        self.assertEqual(check_information_structure_first_setting('pish is X',
-                                                                   all_values_settings_mapped_dict),
+        self.assertEqual(first_setting_is_valid('pish is X', all_values_settings_mapped_dict), True)
+        self.assertEqual(first_setting_is_valid('pish is X', all_values_settings_mapped_dict),
                          all_values_settings_mapped_dict['pish'] == 'X')
-        self.assertEqual(check_information_structure_first_setting('pish is is X',
-                                                                   all_values_settings_mapped_dict), False)
-        self.assertEqual(check_information_structure_first_setting('pish pish is X',
-                                                                   all_values_settings_mapped_dict), False)
-        self.assertEqual(check_information_structure_first_setting('pish is X X',
-                                                                   all_values_settings_mapped_dict), False)
+        self.assertEqual(first_setting_is_valid('pish is is X',
+                                                all_values_settings_mapped_dict), False)
+        self.assertEqual(first_setting_is_valid('pish pish is X',
+                                                all_values_settings_mapped_dict), False)
+        self.assertEqual(first_setting_is_valid('pish is X X',
+                                                all_values_settings_mapped_dict), False)
         # tegj
-        self.assertEqual(check_information_structure_first_setting('tegj is L',
-                                                                   all_values_settings_mapped_dict), True)
-        self.assertEqual(check_information_structure_first_setting('tegj is L',
-                                                                   all_values_settings_mapped_dict),
+        self.assertEqual(first_setting_is_valid('tegj is L', all_values_settings_mapped_dict), True)
+        self.assertEqual(first_setting_is_valid('tegj is L', all_values_settings_mapped_dict),
                          all_values_settings_mapped_dict['tegj'] == 'L')
-        self.assertEqual(check_information_structure_first_setting('tegj is is L',
-                                                                   all_values_settings_mapped_dict), False)
-        self.assertEqual(check_information_structure_first_setting('tegj tegj is L',
-                                                                   all_values_settings_mapped_dict), False)
-        self.assertEqual(check_information_structure_first_setting('tegj is L L',
-                                                                   all_values_settings_mapped_dict), False)
+        self.assertEqual(first_setting_is_valid('tegj is is L',
+                                                all_values_settings_mapped_dict), False)
+        self.assertEqual(first_setting_is_valid('tegj tegj is L',
+                                                all_values_settings_mapped_dict), False)
+        self.assertEqual(first_setting_is_valid('tegj is L L',
+                                                all_values_settings_mapped_dict), False)
         self.assertEqual(all_values_settings_mapped_dict, {'glob': 'I', 'prok': 'V', 'pish': 'X', 'tegj': 'L'})
         print("TEST FIRST SETTING - OK")
 
     def test_second_settings_acquisitions(self):
         print("\nTEST SECOND SETTING")
         all_values_settings_mapped_dict = {'glob': 'I', 'prok': 'V', 'pish': 'X', 'tegj': 'L'}
-        roman_numbers_allowed_symbols_list = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
         multipliers_value = {}
         # glob glob Silver
-        self.assertEqual(check_information_structure_second_setting(
-            'glob glob Silver is 34 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), multipliers_value['Silver'] == 17.0)
-        self.assertEqual(check_information_structure_second_setting(
-            'glob glob Silver is 34 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
-        self.assertEqual(check_information_structure_second_setting(
-            'glob glob glob Silver is 34 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
-        self.assertEqual(check_information_structure_second_setting(
-            'glob glob Silver Silver is 34 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
-        self.assertEqual(check_information_structure_second_setting(
-            'glob glob Silver is is 34 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
-        self.assertEqual(check_information_structure_second_setting(
-            'glob glob Silver is 34.0 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
-        self.assertEqual(check_information_structure_second_setting(
-            'glob glob Silver is 34 credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'glob glob Silver is 34 Credits', all_values_settings_mapped_dict, multipliers_value),
+            multipliers_value['Silver'] == 17.0)
+        self.assertEqual(second_setting_is_valid(
+            'glob glob Silver is 34 Credits', all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'glob glob glob Silver is 34 Credits', all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'glob glob Silver Silver is 34 Credits', all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'glob glob Silver is is 34 Credits', all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'glob glob Silver is 34.0 Credits', all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'glob glob Silver is 34 credits', all_values_settings_mapped_dict, multipliers_value), False)
         # glob glob Gold
-        self.assertEqual(check_information_structure_second_setting(
-            'glob prok Gold is 57800 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value),
+        self.assertEqual(second_setting_is_valid(
+            'glob prok Gold is 57800 Credits', all_values_settings_mapped_dict, multipliers_value),
             multipliers_value['Gold'] == 14450.0)
-        self.assertEqual(check_information_structure_second_setting(
-            'glob prok Gold is 57800 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
-        self.assertEqual(check_information_structure_second_setting(
-            'glob prok Gold Gold is 57800 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
-        self.assertEqual(check_information_structure_second_setting(
-            'glob prok Gold Gold is 57800 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
-        self.assertEqual(check_information_structure_second_setting(
-            'glob prok Gold is is 57800 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
-        self.assertEqual(check_information_structure_second_setting(
-            'glob prok Gold is 57800.0 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
-        self.assertEqual(check_information_structure_second_setting(
-            'glob prok Gold is 57800 credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'glob prok Gold is 57800 Credits', all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'glob prok Gold Gold is 57800 Credits', all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'glob prok Gold Gold is 57800 Credits', all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'glob prok Gold is is 57800 Credits', all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'glob prok Gold is 57800.0 Credits', all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'glob prok Gold is 57800 credits', all_values_settings_mapped_dict, multipliers_value), False)
         # pish pish Iron
-        self.assertEqual(check_information_structure_second_setting(
-            'pish pish Iron is 3910 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value),
+        self.assertEqual(second_setting_is_valid(
+            'pish pish Iron is 3910 Credits', all_values_settings_mapped_dict, multipliers_value),
             multipliers_value['Iron'] == 195.5)
-        self.assertEqual(check_information_structure_second_setting(
-            'pish pish Iron is 3910 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
-        self.assertEqual(check_information_structure_second_setting(
-            'pish pish pish Iron is 3910 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
-        self.assertEqual(check_information_structure_second_setting(
-            'pish pish Iron Iron is 3910 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
-        self.assertEqual(check_information_structure_second_setting(
-            'pish pish Iron is is 3910 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
-        self.assertEqual(check_information_structure_second_setting(
-            'pish pish Iron is 3910.0 Credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
-        self.assertEqual(check_information_structure_second_setting(
-            'pish pish Iron is 3910 credits', roman_numbers_allowed_symbols_list,
-            all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'pish pish Iron is 3910 Credits', all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'pish pish pish Iron is 3910 Credits', all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'pish pish Iron Iron is 3910 Credits', all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'pish pish Iron is is 3910 Credits', all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'pish pish Iron is 3910.0 Credits', all_values_settings_mapped_dict, multipliers_value), False)
+        self.assertEqual(second_setting_is_valid(
+            'pish pish Iron is 3910 credits', all_values_settings_mapped_dict, multipliers_value), False)
         self.assertEqual(multipliers_value, {'Silver': 17.0, 'Gold': 14450.0, 'Iron': 195.5})
         print("TEST SECOND SETTING - OK")
 
@@ -169,7 +140,6 @@ class TestSolution(unittest.TestCase):
 
     def test_answers_generated(self):
         print("\nTEST ANSWERS")
-        roman_numbers_allowed_symbols_list = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
         all_values_settings_mapped_dict = {'glob': 'I', 'prok': 'V', 'pish': 'X', 'tegj': 'L'}
         multipliers_value = {'Silver': 17.0, 'Gold': 14450.0, 'Iron': 195.5}
         questions = [
@@ -179,19 +149,15 @@ class TestSolution(unittest.TestCase):
             ["glob", "prok", "Iron"],
             ["I have no idea what you are talking about"]]
         self.assertEqual(generate_answer(
-            questions[0], roman_numbers_allowed_symbols_list, all_values_settings_mapped_dict, multipliers_value),
-            "pish tegj glob glob is 42")
+            questions[0], all_values_settings_mapped_dict, multipliers_value), "pish tegj glob glob is 42")
         self.assertEqual(generate_answer(
-            questions[1], roman_numbers_allowed_symbols_list, all_values_settings_mapped_dict, multipliers_value),
-            "glob prok Silver is 68 Credits")
+            questions[1], all_values_settings_mapped_dict, multipliers_value), "glob prok Silver is 68 Credits")
         self.assertEqual(generate_answer(
-            questions[2], roman_numbers_allowed_symbols_list, all_values_settings_mapped_dict, multipliers_value),
-            "glob prok Gold is 57800 Credits")
+            questions[2], all_values_settings_mapped_dict, multipliers_value), "glob prok Gold is 57800 Credits")
         self.assertEqual(generate_answer(
-            questions[3], roman_numbers_allowed_symbols_list, all_values_settings_mapped_dict, multipliers_value),
-            "glob prok Iron is 782 Credits")
+            questions[3], all_values_settings_mapped_dict, multipliers_value), "glob prok Iron is 782 Credits")
         self.assertEqual(generate_answer(
-            questions[4], roman_numbers_allowed_symbols_list, all_values_settings_mapped_dict, multipliers_value),
+            questions[4], all_values_settings_mapped_dict, multipliers_value),
             "I have no idea what you are talking about")
         print("TEST ANSWERS - OK")
 
@@ -223,33 +189,39 @@ class TestSolution(unittest.TestCase):
 
     def test_check_roman_number_correct_form(self):
         print("\nTEST STRUCTURE ROMAN NUMBER")
-        roman_numbers_allowed_symbols_list = ['M', 'D', 'C', 'L', 'X', 'V', 'I']
         for arabic_number in range(1, 4000):
             # print(roman_number_generator(arabic_number))
-            self.assertEqual(check_roman_number_correct_form(roman_number_generator(arabic_number),
-                                                             roman_numbers_allowed_symbols_list), True)
-        self.assertEqual(check_roman_number_correct_form("DLMXII", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("MCCXIVL", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("CMXLVIX", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("MDCLVXI", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("IVCDLXC", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("MMMXLIVI", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("IXXXILI", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("DLXXVIL", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("CLCXIV", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("MXIXV", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("MXIX", roman_numbers_allowed_symbols_list), True)
-        self.assertEqual(check_roman_number_correct_form("LIXI", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("LIX", roman_numbers_allowed_symbols_list), True)
-        self.assertEqual(check_roman_number_correct_form("VIXI", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("VIXI", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("XIX", roman_numbers_allowed_symbols_list), True)
-        self.assertEqual(check_roman_number_correct_form("MIM", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("MIMM", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("MMM", roman_numbers_allowed_symbols_list), True)
-        self.assertEqual(check_roman_number_correct_form("DCM", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("LXC", roman_numbers_allowed_symbols_list), False)
-        self.assertEqual(check_roman_number_correct_form("VIC", roman_numbers_allowed_symbols_list), False)
+            self.assertEqual(roman_number_is_valid(roman_number_generator(arabic_number)), True)
+        self.assertEqual(roman_number_is_valid("DLMXII"), False)
+        self.assertEqual(roman_number_is_valid("MCCXIVL"), False)
+        self.assertEqual(roman_number_is_valid("CMXLVIX"), False)
+        self.assertEqual(roman_number_is_valid("MDCLVXI"), False)
+        self.assertEqual(roman_number_is_valid("IVCDLXC"), False)
+        self.assertEqual(roman_number_is_valid("MMMXLIVI"), False)
+        self.assertEqual(roman_number_is_valid("IXXXILI"), False)
+        self.assertEqual(roman_number_is_valid("DLXXVIL"), False)
+        self.assertEqual(roman_number_is_valid("CLCXIV"), False)
+        self.assertEqual(roman_number_is_valid("MXIXV"), False)
+        self.assertEqual(roman_number_is_valid("MXIX"), True)
+        self.assertEqual(roman_number_is_valid("LIXI"), False)
+        self.assertEqual(roman_number_is_valid("LIX"), True)
+        self.assertEqual(roman_number_is_valid("VIXI"), False)
+        self.assertEqual(roman_number_is_valid("VIXI"), False)
+        self.assertEqual(roman_number_is_valid("XIX"), True)
+        self.assertEqual(roman_number_is_valid("MIM"), False)
+        self.assertEqual(roman_number_is_valid("MIMM"), False)
+        self.assertEqual(roman_number_is_valid("MMM"), True)
+        self.assertEqual(roman_number_is_valid("DCM"), False)
+        self.assertEqual(roman_number_is_valid("LXC"), False)
+        self.assertEqual(roman_number_is_valid("VIC"), False)
+        self.assertEqual(roman_number_is_valid("IIII"), False)
+        self.assertEqual(roman_number_is_valid("VVVV"), False)
+        self.assertEqual(roman_number_is_valid("XXXX"), False)
+        self.assertEqual(roman_number_is_valid("LLLL"), False)
+        self.assertEqual(roman_number_is_valid("CCCC"), False)
+        self.assertEqual(roman_number_is_valid("DDDD"), False)
+        self.assertEqual(roman_number_is_valid("MMMM"), False)
+
         print("TEST STRUCTURE ROMAN NUMBER - OK")
 
 
