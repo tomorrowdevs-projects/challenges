@@ -1,35 +1,29 @@
-## QUEUE implementation
-<div style="text-align: justify; margin-bottom : 30px; margin-top: 30px"> 
-
-Implementing a **QUEUE** data structure is **useful** when you want to create a service that serves its users according to the **FIFO** method.
-
-The **FIFO** method is a method that serves (_**FO - First Out**_) first the first element arrived in the QUEUE (_**FI - First In**_) and only after the others (_in chronological order of insertion into the QUEUE_).
-
-</div>
-
-<div style="text-align: center; margin-bottom: 30px">
-
-![queue.png](queue.png)
-
-</div>
-
-<div style="text-align: justify; margin-bottom: 50px"> 
-
-A possible implementation of this data structure could concern, for example, an **assistance system** provided through **ticketing**.
-In such a system we would have that:
-- once the **tickets** have been **resolved**, the QUEUE is **emptied**
-- when **new requests** for assistance **arrive**, the QUEUE **fills up**.
-
-</div>
-
-<div style="text-align: justify; margin-bottom: 35px">
-
-The **_STACK_** is instead a data structure that uses the _**LIFO**_ method, which is a method that serves first (_**FO - First Out**_) the last element that has been inserted into the STACK itself (_**LI - Last In**_).
-
-</div>
-
-<div style="text-align: center"> 
-
-![stack.png](stack.png)
-
-</div>
+## QUEUE implementation  
+<p align="justify">
+Implementing a <b>QUEUE</b> data structure is <b>useful</b> when you want to create a service that serves its   
+users according to the <b>FIFO</b> method.    
+<br/> <br/>  
+The <b>FIFO</b> method is a method that serves (<i><b>FO - First Out</b></i>) first the first element arrived   
+in the QUEUE (<i><b>FI - First In</b></i>) and only after the others   
+(<i>in chronological order of insertion into the QUEUE</i>).    
+</p>   
+  
+<p align="center">   
+<img src="https://raw.githubusercontent.com/aleattene/challenges/634f14779128ec2e877c28506f2c677924b1980c/challenges/easy/queue/solutions/aleattene/queue.png">  
+</p>   
+  
+<p align="justify"> 
+A possible implementation of this data structure could concern, for example, an <b>assistance system</b> provided   
+through <b>ticketing</b>.    
+In such a system we would have that:    
+- once the <b>tickets</b> have been <b>resolved</b>, the QUEUE is <b>emptied</b>    
+- when <b>new requests</b> for assistance <b>arrive</b>, the QUEUE <b>fills up</b>.      
+<br/> <br/> <br/>
+The <i><b>STACK</b></i> is instead a data structure that uses the <i><b>LIFO</b></i> method, which is a method   
+that serves first (<i><b>FO - First Out</b></i>) the last element that has been inserted into the STACK itself   
+(<i><b>LI - Last In</b></i>).    
+</p>  
+  
+<p align="center">
+<img src="https://github.com/aleattene/challenges/blob/634f14779128ec2e877c28506f2c677924b1980c/challenges/easy/queue/solutions/aleattene/stack.png?raw=true">  
+</p>
