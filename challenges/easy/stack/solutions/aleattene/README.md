@@ -24,7 +24,8 @@ present. </li> </ul>
 The <i><b>QUEUE</b></i> is instead a data structure that uses the <i><b>FIFO</b></i> method, which is a method     
 that serves (<i><b>FO - First Out</b></i>) first the first element arrived in the QUEUE (<i><b>FI - First In</b></i>) 
 and only after the others (<i>in chronological order of insertion into the QUEUE itself</i>).
-      
+</p>
+
 <p align="center">
 <img src="queue.png">
 </p>
