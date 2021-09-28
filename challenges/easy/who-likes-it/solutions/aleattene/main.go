@@ -27,7 +27,7 @@ func main() {
   followers_two := []string{"Jacob","Alex"}
   followers_three := []string{"Max", "John","Mark"}
   followers_four := []string{"Alex", "Jacob","Mark", "Max"}
-  followers_other := []string{"Alex", "Jacob","Mark", "Max", "Michele", "Gabriele", "Simone", "valentina", "Daniele"}
+  followers_other := []string{"Alex", "Jacob","Mark", "Max", "Michele", "Gabriele", "Simone", "Valentina", "Daniele"}
   fmt.Println(likes(followers_empty...))
   fmt.Println(likes(followers_one...))
   fmt.Println(likes(followers_two...))
