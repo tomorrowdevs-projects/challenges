@@ -18,11 +18,7 @@ class Queue {
   }
 
   public boolean isEmpty() {
-    if (size == 0) {
-      return true;
-    } else {
-      return false;
-    }
+    return size == 0;
   }
 
   public boolean isFull() {
@@ -76,6 +72,7 @@ class Queue {
     System.out.println(Arrays.toString(this.arr));
   }
 }
+
 
 
 class Main {
