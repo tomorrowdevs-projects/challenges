@@ -3,16 +3,7 @@ class MyQueue extends java.util.ArrayList{
   //
   public boolean isEmpty(){
     //return true if the size of the array is 0;
-<<<<<<< HEAD
     return super.size() == 0;
-=======
-    if(super.size() == 0){
-      return true;
-    }
-    else{
-      return false;
-    }
->>>>>>> 93dce9a83b5bfb7c59799fed605561fadbb13d17
   }
 
   public int size(){
