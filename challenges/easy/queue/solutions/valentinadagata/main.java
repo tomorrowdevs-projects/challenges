@@ -48,11 +48,7 @@ public class Main{
   public static void main(String[] args){
     MyQueue queue = new MyQueue();
 
-<<<<<<< HEAD
     // testing the queue
-=======
-    // testing the stack
->>>>>>> 93dce9a83b5bfb7c59799fed605561fadbb13d17
     queue.enqueue("Test");
     queue.enqueue(1);
     System.out.println(queue.peek());
@@ -73,8 +69,4 @@ public class Main{
     System.out.println(queue.size());
     System.out.println(queue.isEmpty());
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 93dce9a83b5bfb7c59799fed605561fadbb13d17
