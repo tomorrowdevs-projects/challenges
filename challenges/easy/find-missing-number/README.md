@@ -7,8 +7,8 @@ You are given an unsorted array containing all the integers from 0 to 100 inclus
 ## Example
 
 ```js
-const list = [1,3,2,10,5,8,6,7,9];
+const list = [230, 222, 220, 224, 229, 221, 225, 223, 228, 226];
 const missingNumber = findMissingNumber(list);
 
-console.log(missingNumber); // => 4
+console.log(missingNumber); // => 227
 ```
