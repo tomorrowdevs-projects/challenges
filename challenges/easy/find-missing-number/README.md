@@ -1,6 +1,6 @@
 # Find the missing number
 
-You are given an unsorted array containing all the integers from `X` to `Y` inclusively. However, one number is missing. Write a function to find and return this number.
+You are given an unsorted array containing all the integers from `X` to `Y`. However, one number is missing. Write a function to find and return this number.
 
 **Bonus point**: What are the time and space complexities of your solution?
 
