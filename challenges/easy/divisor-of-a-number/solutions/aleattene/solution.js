@@ -4,13 +4,21 @@ To test the solution, type from CLI: node solution.js
 */
 
 function divisors(number) {
+    // Variables declarations
     let divisor = 1;
-    let counter = 0;
-    while (divisor <= Math.floor(number/divisor)) {
-        number % divisor == 0 ? Math.floor(number/divisor) > divisor ? counter += 2 : counter += 1 : counter = counter
+    let count = 0;
+    let quotient = number;
+    while (divisor <= quotient) {
+        // The number is divisible by the divisor
+        if (number % divisor == 0) {
+            // If the quotient is greater than the divisor both must be counted otherwise only the divisor
+            quotient > divisor ? count += 2 : count += 1
+        }
+        // New divisor and new quotient to consider for the next iteration
         divisor += 1;
+        quotient = number / divisor;
     }
-    return counter
+    return count
 }
 
 
