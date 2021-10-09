@@ -2,7 +2,6 @@
 #include <vector>
 using namespace std;
 
-
 class Queue 
 {
     private:
@@ -17,29 +16,29 @@ class Queue
     int dequeue() {
         int x = 0;
         if(isEmpty()) {
-            cout << "Queue is Empty." << endl;
-            return -1;  //we have to reurn some value couse of the int function
+            cout << "Queue is Empty. The values in queue are: ";
+            return 0;  //we have to return some value couse of the int function
         }
         else {
             x = myQueue.at(0);
             myQueue.erase(myQueue.begin());
+            cout << "Dequeued Value: "; 
             return x;
         }
     }
 
     int peek() {
-        if(!isEmpty()) 
+        if(!isEmpty()) {
+            cout << "The last item inserted is: ";
             return myQueue.at(0);
+        }
         else 
-            cout << "Queue is Empty." << endl;
-            return -1;
+            cout << "Queue is Empty. The values in queue are: ";
+            return 0;
     }
 
     bool isEmpty() {
-        if(myQueue.size() == 0)
-            return true;
-        else
-            return false;
+        return myQueue.size() == 0;
     }
 
     int size() {
@@ -47,8 +46,6 @@ class Queue
     }
 
     void display() {
-        if (isEmpty())
-            cout << "|None";
         cout << "|";
         for(int i=0; i<myQueue.size(); i++) {
             cout << myQueue[i] << "|";
@@ -84,11 +81,11 @@ int main() {
                 break;
 
             case 2:
-                cout << "*** Dequeue Operation *** \nDequeued Value: " << test1.dequeue() <<endl;
+                cout << "*** Dequeue Operation ***\n" << test1.dequeue() <<endl;
                 break;
             
             case 3:
-                cout << "*** Peek Operation *** \nThe last item inserted in Queue is: " << test1.peek() <<endl;
+                cout << "*** Peek Operation ***\n" << test1.peek() <<endl;
                 break;
             
             case 4:
