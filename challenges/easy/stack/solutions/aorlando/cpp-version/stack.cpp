@@ -17,29 +17,29 @@ class Stack
     int pop() {
         int x = 0;
         if(isEmpty()) {
-            cout << "Stack is Empty." << endl;
-            return -1;  //we have to reurn some value couse of the int function
+            cout << "Stack is Empty. The values in stack are: ";
+            return 0;  //we have to return some value couse of the int function
         }
         else {
             x = myStack.size();
             myStack.pop_back();
+            cout << "Pop value: ";
             return myStack[x-1];
         }
     }
 
     int peek() {
-        if(!isEmpty()) 
+        if(!isEmpty()){
+            cout << "The first item inserted in Stack is: ";
             return myStack.at(myStack.size() - 1);
+        }
         else 
-            cout << "Stack is Empty." << endl;
-            return -1;
+            cout << "Stack is Empty. The values in stack are: ";
+            return 0;
     }
 
     bool isEmpty() {
-        if(myStack.size() == 0)
-            return true;
-        else
-            return false;
+        return myStack.size() == 0;
     }
 
     int size() {
@@ -47,8 +47,6 @@ class Stack
     }
 
     void display() {
-        if (isEmpty())
-            cout << "|None";
         cout << "|";
         for(int i = 0; i < myStack.size(); i++) {
             cout << myStack[i] << "|";
@@ -78,17 +76,17 @@ int main() {
                 break;
 
             case 1:
-                cout << "*** Push Operation 1*** \nPlease enter an item to push in the Stack:"<<endl;
+                cout << "*** Push Operation 1***\nPlease enter an item to push in the Stack:"<<endl;
                 cin >> item;
                 test1.push(item);
                 break;
 
             case 2:
-                cout << "*** Pop Operation *** \nPop Value: " << test1.pop() <<endl;
+                cout << "*** Pop Operation ***\n" << test1.pop() <<endl;
                 break;
             
             case 3:
-                cout << "*** Peek Operation *** \nThe first item inserted in Stack is: " << test1.peek() <<endl;
+                cout << "*** Peek Operation ***\n" << test1.peek() <<endl;
                 break;
             
             case 4:
@@ -99,11 +97,11 @@ int main() {
                 break;
             
             case 5:
-                cout << "*** Size Operation *** \nCount of items in Stack: " << test1.size() <<endl;
+                cout << "*** Size Operation ***\nCount of items in Stack: " << test1.size() <<endl;
                 break;
             
             case 6:
-                cout << "*** Display Function Called *** \nAll items in the Stack are: ";
+                cout << "*** Display Function Called ***\nAll items in the Stack are: ";
                 test1.display();
                 break;
             
