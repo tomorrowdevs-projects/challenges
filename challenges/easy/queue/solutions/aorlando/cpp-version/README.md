@@ -11,7 +11,6 @@ I have created a data structure in cpp for a queue able to do the following meth
   - `peek()` - returns the next item in the queue without removing it
   - `isEmpty()` - tests to see whether the queue is empty
   - `size()` - returns the number of items in the queue
-  - `isFull()` - tests to see whether the queue is full
   - `display()` - return the item inside the queue
 
   
