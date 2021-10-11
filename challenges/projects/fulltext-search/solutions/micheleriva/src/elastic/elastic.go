@@ -1,51 +1,122 @@
 package elastic
 
 import (
+	"context"
+	"encoding/json"
 	"fmt"
 
-	"github.com/elastic/go-elasticsearch/v7"
+	csv "github.com/micheleriva/challenges/src/csv"
+	"github.com/olivere/elastic/v7"
+	"github.com/olivere/elastic/v7/config"
 )
 
-type IndexStruct = struct {
-	Author string `json:"author"`
+type Quote struct {
 	Quote  string `json:"quote"`
+	Author string `json:"author"`
 }
 
 const IndexName = "quotes"
-
-var Elastic *elasticsearch.Client
-
-func initializeInstance() *elasticsearch.Client {
-	es, err := elasticsearch.NewDefaultClient()
-	if err != nil {
-		panic(err)
+const IndexMapping = `
+{
+	"mappings": {
+		"properties": {
+			"quote": {
+				"type": "text"
+			},
+			"author": {
+				"type": "text"
+			},
+			"suggest_field": {
+				"type": "completion"
+			}
+		}
 	}
-
-	return es
 }
+`
+
+var client *elastic.Client
 
 func init() {
-	Elastic = initializeInstance()
-}
+	conf, _ := config.Parse("http://localhost:9200?sniff=false")
 
-func IndexExists() bool {
-	exists, err := Elastic.Indices.Exists([]string{IndexName})
+	esClient, err := elastic.NewClientFromConfig(conf)
 	if err != nil {
 		panic(err)
 	}
 
-	return exists.StatusCode != 404
+	client = esClient
+
+	createIndex()
 }
 
-func CreateIndex() error {
-	res, err := Elastic.Indices.Create(IndexName)
+func createIndex() {
+	ctx := context.Background()
+	exists, err := client.IndexExists(IndexName).Do(ctx)
 	if err != nil {
-		return err
+		panic(err)
 	}
 
-	if res.StatusCode != 200 {
-		return fmt.Errorf("Index not created")
+	if !exists {
+		fmt.Println("Index does not exists. Creating...")
+		createIndex, err := client.CreateIndex(IndexName).BodyString(IndexMapping).Do(ctx)
+		if err != nil {
+			panic(err)
+		}
+
+		if !createIndex.Acknowledged {
+			panic("Not acknowledged")
+		}
+	} else {
+		fmt.Println("Index already exists")
+	}
+}
+
+func ImportContent(quotes []csv.CSVContent) error {
+	ctx := context.Background()
+
+	for _, quote := range quotes {
+		put, err := client.
+			Index().
+			Index(IndexName).
+			Type("_doc").
+			BodyJson(quote).
+			Do(ctx)
+
+		if err != nil {
+			return err
+		}
+
+		fmt.Printf("Indexed %s\n", put.Id)
 	}
 
 	return nil
+}
+
+func Search(query string) ([]Quote, error) {
+	ctx := context.Background()
+
+	searchSource := elastic.NewSearchSource()
+	searchSource.Query(elastic.NewFuzzyQuery(IndexName, query))
+
+	searchService := client.Search().Index(IndexName).SearchSource(searchSource)
+	searchResult, err := searchService.Do(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	var quotes []Quote
+
+	for _, hit := range searchResult.Hits.Hits {
+		var quote Quote
+		err := json.Unmarshal(hit.Source, &quote)
+		if err != nil {
+			return nil, err
+		}
+
+		quotes = append(quotes, quote)
+	}
+
+	fmt.Println("results=", quotes)
+
+	return quotes, nil
 }

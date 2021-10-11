@@ -3,21 +3,17 @@ package main
 import (
 	"fmt"
 
-	// cvs "github.com/micheleriva/challenges/src/csv"
 	es "github.com/micheleriva/challenges/src/elastic"
 )
 
-func init() {
-	if !es.IndexExists() {
-		fmt.Println("Index does not exists, creating now...")
-		es.CreateIndex()
-	}
-}
-
 func main() {
-	// content := cvs.ReadCSVFile()
+	results, err := es.Search("love")
+	if err != nil {
+		fmt.Println("We got an error:")
+		fmt.Println(err)
+	}
 
-	indexExists := es.IndexExists()
-
-	fmt.Println(indexExists)
+	for _, result := range results {
+		fmt.Println(result)
+	}
 }
