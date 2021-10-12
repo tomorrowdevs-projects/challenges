@@ -14,27 +14,13 @@ class Queue
     }
 
     int dequeue() {
-        int x = 0;
-        if(isEmpty()) {
-            cout << "Queue is Empty. The values in queue are: ";
-            return 0;  //we have to return some value couse of the int function
-        }
-        else {
-            x = myQueue.at(0);
-            myQueue.erase(myQueue.begin());
-            cout << "Dequeued Value: "; 
-            return x;
-        }
+        int x = myQueue.at(0);
+        myQueue.erase(myQueue.begin()); 
+        return x;
     }
 
     int peek() {
-        if(!isEmpty()) {
-            cout << "The last item inserted is: ";
-            return myQueue.at(0);
-        }
-        else 
-            cout << "Queue is Empty. The values in queue are: ";
-            return 0;
+        return myQueue.at(0);
     }
 
     bool isEmpty() {
@@ -45,11 +31,8 @@ class Queue
         return myQueue.size();
     }
 
-    void display() {
-        cout << "|";
-        for(int i=0; i<myQueue.size(); i++) {
-            cout << myQueue[i] << "|";
-        }
+    vector<int> display() {
+        return myQueue;
     }
 };
 
@@ -57,6 +40,7 @@ class Queue
 int main() {
     Queue test1;
     int option, item;
+    vector<int> queue;
 
     do {
         cout << "\n\nWhat operation do you want to perform? Select Option number (0 to exit)." << endl;
@@ -75,17 +59,23 @@ int main() {
                 break;
 
             case 1:
-                cout << "*** Enqueue Operation 1*** \nPlease enter an item to Enqueue in the Queue:"<<endl;
+                cout << "*** Enqueue Operation *** \nPlease add an item to Queue:"<<endl;
                 cin >> item;
                 test1.enqueue(item);
                 break;
 
             case 2:
-                cout << "*** Dequeue Operation ***\n" << test1.dequeue() <<endl;
+                if(test1.isEmpty())
+                    cout << "Queue is Empty" << endl;
+                else
+                    cout << "*** Dequeue Operation ***\nDequeued item: " << test1.dequeue() <<endl;
                 break;
             
             case 3:
-                cout << "*** Peek Operation ***\n" << test1.peek() <<endl;
+                if(test1.isEmpty())
+                    cout << "Queue is Empty" << endl;
+                else
+                    cout << "*** Peek Operation ***\nThe first item inserted in Queue is: " << test1.peek() <<endl;
                 break;
             
             case 4:
@@ -100,8 +90,16 @@ int main() {
                 break;
             
             case 6:
-                cout << "*** Display Function Called *** \nAll items in the Queue are: ";
-                test1.display();
+                if(test1.isEmpty())
+                    cout << "Queue is Empty" << endl;
+                else {
+                    cout << "*** Display Function Called *** \nAll items in the Queue are: ";
+                    queue = test1.display();
+                    cout << "|";
+                    for(int i = 0; i < queue.size(); i++) {
+                        cout << queue[i] << "|";
+                    }
+                }
                 break;
             
             default:
