@@ -66,8 +66,6 @@ func createIndex() {
 		if !createIndex.Acknowledged {
 			panic("Not acknowledged")
 		}
-	} else {
-		fmt.Println("Index already exists")
 	}
 }
 
@@ -92,21 +90,29 @@ func ImportContent(quotes []csv.CSVContent) error {
 	return nil
 }
 
-func Search(query string) ([]Quote, error) {
+func Search(query string, limit int, from int) ([]Quote, error) {
 	ctx := context.Background()
 
-	searchSource := elastic.NewSearchSource()
-	searchSource.Query(elastic.NewFuzzyQuery(IndexName, query))
+	var mustQueries []elastic.Query
+	boolQuery := elastic.NewBoolQuery()
+	mustQueries = append(mustQueries, elastic.NewQueryStringQuery(query))
+	boolQuery.Must(mustQueries...)
 
-	searchService := client.Search().Index(IndexName).SearchSource(searchSource)
-	searchResult, err := searchService.Do(ctx)
+	res, err := client.Search().
+		Index(IndexName).
+		Type("_doc").
+		Size(limit).
+		From(from).
+		Query(boolQuery).
+		Do(ctx)
+
 	if err != nil {
 		return nil, err
 	}
 
 	var quotes []Quote
 
-	for _, hit := range searchResult.Hits.Hits {
+	for _, hit := range res.Hits.Hits {
 		var quote Quote
 		err := json.Unmarshal(hit.Source, &quote)
 		if err != nil {
@@ -115,8 +121,6 @@ func Search(query string) ([]Quote, error) {
 
 		quotes = append(quotes, quote)
 	}
-
-	fmt.Println("results=", quotes)
 
 	return quotes, nil
 }
