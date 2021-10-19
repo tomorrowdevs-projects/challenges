@@ -90,18 +90,21 @@ func ImportContent(quotes []csv.CSVContent) error {
 	return nil
 }
 
-func Search(query string, limit int, from int) ([]Quote, error) {
+func Search(query string, size int, from int) ([]Quote, error) {
 	ctx := context.Background()
 
 	var mustQueries []elastic.Query
+
 	boolQuery := elastic.NewBoolQuery()
 	mustQueries = append(mustQueries, elastic.NewQueryStringQuery(query))
+
 	boolQuery.Must(mustQueries...)
 
-	res, err := client.Search().
+	res, err := client.
+		Search().
 		Index(IndexName).
 		Type("_doc").
-		Size(limit).
+		Size(size).
 		From(from).
 		Query(boolQuery).
 		Do(ctx)
