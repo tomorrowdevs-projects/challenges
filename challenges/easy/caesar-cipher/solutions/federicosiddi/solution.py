@@ -24,13 +24,13 @@ def decode(original_sentence, shift):
     for char in original_sentence:
         if char in low_letters:
             char_index = low_letters.index(char)
-            decoded_sentence.append(low_letters[(char_index+(shift*-1))%26])
+            decoded_sentence.append(low_letters[(char_index-shift)%26])
         elif char in up_letters:
             char_index = up_letters.index(char)
-            decoded_sentence.append(up_letters[(char_index+(shift*-1))%26])
+            decoded_sentence.append(up_letters[(char_index-shift)%26])
         else:
             decoded_sentence.append(char)
     return ''.join(decoded_sentence)
 
-decoded_message = decode('CxvxaaxfMneb Axltb!', 9)
+decoded_message = decode('Gtdflw Defotz Nzop td rcple!!!', -15)
 print(f"Decoded message: {decoded_message}")
