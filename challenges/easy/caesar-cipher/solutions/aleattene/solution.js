@@ -23,7 +23,7 @@ function encode(originalMessage, shift) {
 
 
 function decode(encryptedMessage, shift) {
-    // Thi function returns the decrypted (original) message according to the Caesar cipher
+    // This function returns the decrypted (original) message according to the Caesar cipher
     return(encode(encryptedMessage, -shift));
 }
 
