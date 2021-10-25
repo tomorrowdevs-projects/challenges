@@ -39,29 +39,17 @@ def decode(shift):
 
 def main():
 
-    choice = int(input("Press 1 to encode the message or -1 to decode the message: "))
-    valid_choice = [1, -1]
-    while choice not in valid_choice:
-        print(f"{choice} is not a valid value. Please try again")
-        choice = int(input("Press 1 to encode the message or -1 to decode the message: "))
+    print("\nEncoded messages:")
+    print(caesar_cipher('Hello, World!', encode(7)))
+    print(caesar_cipher('I love pizza.', encode(-7)))
+    print(caesar_cipher('HytyQapgnr kyicq qclqc. Qmkcrgkcq.', encode(50)))
+    print(caesar_cipher('abc', encode(24)))
 
-    # Read the message and shift amount from the user
-    message = input("Enter the message: ")
-    shift = int(input("Enter the shift value: "))
-
-    if choice == 1:
-        shift = encode(shift)
-    else:
-        shift = decode(shift)
-
-    decrypted_message = caesar_cipher(message, shift)
-
-    # Display the message
-    print(f"""
-            Original message: {message}
-            
-            Decrypted message: {decrypted_message}
-            """)
+    print("\nDecoded messages:")
+    print(caesar_cipher('CxvxaaxfMneb Axltb!', decode(9)))
+    print(caesar_cipher('Gtdflw Defotz Nzop td rcple!!!', decode(-15)))
+    print(caesar_cipher("Buj'i mhyju jxu syfxuh.", decode(120)))
+    print(caesar_cipher('Vriwzduh Hqjlqhhulqj', decode(3)))
 
 
 if __name__ == "__main__":
@@ -74,8 +62,8 @@ for negative number we have to understand the behavior of the modulus operator %
 mod = n - (n//base) * base
 
 e.g. case where shift value is positive integer and the operation pos = ord(ch) - ord("a") generate a positive integer
-2 - (2//97) * 2 ==> is the same as ==> 2 % 97 ==> both result is 2
+2 - (97 * (2//97) ==> is the same as ==> 2 % 97 ==> both result is 2
 
 e.g. case where shift value is negative integer and the operation pos = ord(ch) - ord("a") generate a negative integer
--2 - (-2//97) * 1.25 ==> is the same as ==> -2 % 97 ==> both result is 95
+-2 - (97 * (-2//97) ==> is the same as ==> -2 % 97 ==> both result is 95
 """

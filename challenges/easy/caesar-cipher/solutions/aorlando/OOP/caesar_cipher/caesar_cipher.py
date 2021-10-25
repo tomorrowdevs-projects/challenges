@@ -68,11 +68,9 @@ Notes:
 for negative number we have to understand the behavior of the modulus operator %
 mod = n - (n//base) * base
 
-e.g. case where shift value is positive integer and the operation pos = ord(char) - ord("a") generate a positive integer
-2 - (2//97) * 2 ==> is the same as ==> 2 % 97 ==> both result is 2
-then we'll add this value to ord("a") in order to find the correct position in the ASCII table
+e.g. case where shift value is positive integer and the operation pos = ord(ch) - ord("a") generate a positive integer
+2 - (97 * (2//97) ==> is the same as ==> 2 % 97 ==> both result is 2
 
-e.g. case where shift value is negative integer and the operation pos = ord(char) - ord("a") generate a negative integer
--2 - (-2//97) * 1.25 ==> is the same as ==> -2 % 97 ==> both result is 95
-then we'll add this value to ord("a") in order to find the correct position in the ASCII table
+e.g. case where shift value is negative integer and the operation pos = ord(ch) - ord("a") generate a negative integer
+-2 - (97 * (-2//97) ==> is the same as ==> -2 % 97 ==> both result is 95
 """
