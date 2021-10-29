@@ -22,10 +22,10 @@ let i = 0;
 while (i < files.length) {
 
     // Data Structures for the occurrence of characters and their real frequency in the analyzed text
-    let occurrences = {}, realFrequency = {}
+    let occurrences = {}, realFrequency = {};
 
     // Current file to be cracked
-    let file =  files[i]
+    let file =  files[i];
 
     // File reading
     fs.readFile('../../cases/' + file, 'utf8',
@@ -39,15 +39,16 @@ while (i < files.length) {
                 let numChars = 0;
                 let j = 0;
                 while (j < data.length) {
-                    let current_char = data[j].toLowerCase()
+                    let current_char = data[j].toLowerCase();
                     if (current_char in theoreticalFrequency) {
                         numChars += 1;
                         if (current_char in realFrequency) {
-                            occurrences[current_char] += 1
-                        } else {
-                            occurrences[current_char] = 1
+                            occurrences[current_char] += 1;
                         }
-                        realFrequency[current_char] = occurrences[current_char] / numChars
+                        else {
+                            occurrences[current_char] = 1;
+                        }
+                        realFrequency[current_char] = occurrences[current_char] / numChars;
                     }
                     j++;
                 }
@@ -62,7 +63,7 @@ while (i < files.length) {
                 let char = (getKeyByValue(realFrequency, value));
 
                 // Difference between more frequent char in the text and char "e" (most frequent in English texts)
-                let shift = char.charCodeAt(0) - "e".charCodeAt(0)
+                let shift = char.charCodeAt(0) - "e".charCodeAt(0);
 
                 // Writes the cracked text to a new file
                 fs.writeFile("./cracked-files/Cracked-" + file , decode(data, shift), 'utf-8',
