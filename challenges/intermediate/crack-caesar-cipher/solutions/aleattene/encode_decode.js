@@ -23,6 +23,8 @@ function decode(encryptedMessage, shift) {
     return(encode(encryptedMessage, -shift));
 }
 
+
+// Export modules
 module.exports = {
     encode,
     decode
