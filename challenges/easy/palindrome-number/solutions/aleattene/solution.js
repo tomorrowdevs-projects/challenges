@@ -5,13 +5,11 @@ To test the solution, type from CLI: npm test (required node.js and jest framewo
 
 
 function isPalindrome(number) {
-    // From number to String
+    // From number to string
     let word = number.toString()
-
     // Shift indexes (left and right)
     let i = 0;
     let j = word.length - 1;
-
     // Returns false as soon as two different values are found
     while (i <= j) {
          if (word[i] !== word[j]) {
