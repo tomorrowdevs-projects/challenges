@@ -7,14 +7,10 @@ def find_long_palin_substr(string: str) -> str:
 
 	for i in range(1, length):
 		# use i as index center for even subs
-		low = i - 1
-		high = i
-		even_substr, start, max_length = find_palin_substr(string, start, low, high, length, max_length)
+		even_substr, start, max_length = find_palin_substr(string, start, length, max_length, low=(i-1), high=i)
 
 		# use i as index center for odd subs
-		low = i - 1
-		high = i + 1
-		odd_substr, start, max_length = find_palin_substr(string, start, low, high, length, max_length)
+		odd_substr, start, max_length = find_palin_substr(string, start, length, max_length, low=(i-1), high=(i+1))
 
 		if len(even_substr) > len(max_even_substr):
 			max_even_substr = even_substr
@@ -24,7 +20,7 @@ def find_long_palin_substr(string: str) -> str:
 	return max_even_substr if len(max_even_substr) >= len(max_odd_substr) else max_odd_substr
 
 
-def find_palin_substr(string: str, start: int, low: int, high: int, length: int, max_length: int) -> tuple:
+def find_palin_substr(string: str, start: int, length: int, max_length: int, low: int, high: int) -> tuple:
 
 	while low >= 0 and high < length and string[low] == string[high]:
 		low -= 1
