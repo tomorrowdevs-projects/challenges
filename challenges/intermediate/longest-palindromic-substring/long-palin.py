@@ -1,5 +1,5 @@
 def find_long_palin_substr(string: str) -> str:
-	maxLength: int = 1
+	max_length: int = 1
 
 	start = 0
 	length = len(string)
@@ -9,12 +9,12 @@ def find_long_palin_substr(string: str) -> str:
 		# use i as index center for even subs
 		low = i - 1
 		high = i
-		even_substr, start, max_length = find_palin_substr(string, start, low, high, length, maxLength)
+		even_substr, start, max_length = find_palin_substr(string, start, low, high, length, max_length)
 
 		# use i as index center for odd subs
 		low = i - 1
 		high = i + 1
-		odd_substr, start, max_length = find_palin_substr(string, start, low, high, length, maxLength)
+		odd_substr, start, max_length = find_palin_substr(string, start, low, high, length, max_length)
 
 		if len(even_substr) > len(max_even_substr):
 			max_even_substr = even_substr
